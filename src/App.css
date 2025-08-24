@@ -6,7 +6,7 @@
     padding: 0;
   }
 .wrap { width: 100%; margin: 0 auto; padding: 16px;  background: #fff;}
-.topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.topbar { display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
 .hint { color: #64748b; font-size: 12px; }
 
 .grid { display: grid; grid-template-columns: 1fr 280px; gap: 16px; margin-bottom: 16px; background: #ffffff;}
@@ -105,3 +105,71 @@
 .actions { margin-top: 14px; display: flex; gap: 10px; }
 .actions button { padding: 8px 12px; border-radius: 10px; border: 1px solid #cbd5e1; background: #f8fafc; cursor: pointer; }
 .actions button:hover { background: #eef2f7; }
+
+
+/* Cost Calculator styles */
+.cost-card {
+  max-width: 1080px;        
+  margin: 24px auto 0;      
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;      
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.03);
+}
+
+.cost-header{
+  display:flex; align-items:center; justify-content:center;
+  padding: 6px 0 12px;
+}
+.cost-title{
+  margin:0; font-weight:800; letter-spacing:.06em;
+}
+
+.cost-table{
+  display:flex; flex-direction:column; gap:10px;
+}
+.cost-head, .cost-row{
+  display:grid;
+  grid-template-columns: 1.2fr 1.2fr 1fr 0.9fr 1.2fr 1fr;
+  gap:12px; align-items:center;
+}
+.cost-head{
+  padding:8px 12px; border-radius:10px; background:#f8fafc; color:#475569; font-weight:600;
+}
+.cost-row{
+  padding:10px 12px; border:1px solid #eef2f7; border-radius:12px; background:#fbfdff;
+}
+
+.label{ font-weight:700; }
+
+.input{
+  width:100%; padding:10px 12px;
+  border:1px solid #cbd5e1; border-radius:10px; outline:none; background:#fff;
+}
+.input:focus{ border-color:#64748b; }
+
+.waste-wrap,.price-wrap{ display:flex; align-items:center; gap:6px; }
+.plus,.at,.dollar,.suffix,.unit{ color:#64748b; }
+.waste{ width:80px; text-align:right; }
+.price{ width:110px; text-align:right; }
+
+.right{ text-align:right; }
+.subtotal{ font-weight:700; color:#0f172a; }
+
+.cost-footer{
+  display:flex; align-items:center; justify-content:space-between;
+  padding-top:14px; margin-top:12px; border-top:1px dashed #e2e8f0;
+}
+.totals{ display:flex; gap:24px; }
+.muted{ color:#64748b; }
+
+.btn{
+  padding:8px 14px; border-radius:10px; border:1px solid #cbd5e1;
+  background:#f8fafc; cursor:pointer;
+}
+.btn:hover{ background:#eef2f7; }
+.btn.primary{
+  background:#3b82f6; color:#fff; border-color:#3b82f6;
+}
+.btn.primary:hover{ filter:brightness(0.95); }

@@ -5,19 +5,20 @@ import StumpsPanel from "./components/panels/StumpsPanel";
 import BearersPanel from "./components/panels/BearersPanel";
 import JoistsPanel from "./components/panels/JoistsPanel";
 import DeckBoardsPanel from "./components/panels/DeckBoardsPanel";
+import CostCalculator from "./components/CostCalculator";
 
-const partNames = ["1", "2", "3", "4", "5"];
+const partNames = ["Stumps", "Bearers", "Joists", "Deck Boards"];
+
 
 const imageMap = {
-  "1": "1.jpg",
-  "2": "2.jpg",
-  "3": "3.jpg",
-  "4": "4.jpg",
-  "5": "5.jpg",
+  "stumps": "1.jpg",
+  "bearers": "2.jpg",
+  "joists": "3.jpg",
+  "deck-boards": "4.jpg",
 };
 
 const defaultParts = partNames.map((n) => {
-  const id = n.toLowerCase().replace(/\s+/g, "-"); // 生成 id
+  const id = n.toLowerCase().replace(/\s+/g, "-");  // 生成 id
   return {
     id,
     name: n,
@@ -91,6 +92,12 @@ export default function App() {
           }
         />
         </div>
+
+        <CostCalculator
+            onSave={(rows) => console.log("CostCalculator saved:", rows)}
+            onCalculate={(data) => console.log("CostCalculator calculated:", data)}
+          />
       </div>
+      
   );
 }
