@@ -6,13 +6,25 @@ import BearersPanel from "./components/panels/BearersPanel";
 import JoistsPanel from "./components/panels/JoistsPanel";
 import DeckBoardsPanel from "./components/panels/DeckBoardsPanel";
 
-const partNames = ["Stumps", "Bearers", "Joists", "Deck Boards"];
+const partNames = ["1", "2", "3", "4", "5"];
 
-const defaultParts = partNames.map((n) => ({
-  id: n.toLowerCase().replace(/\s+/g, "-"),
-  name: n,
-  preview: n + " preview",
-}));
+const imageMap = {
+  "1": "1.jpg",
+  "2": "2.jpg",
+  "3": "3.jpg",
+  "4": "4.jpg",
+  "5": "5.jpg",
+};
+
+const defaultParts = partNames.map((n) => {
+  const id = n.toLowerCase().replace(/\s+/g, "-"); // 生成 id
+  return {
+    id,
+    name: n,
+    preview: n + " preview",
+    image: `/images/${imageMap[id]}`, // 使用映射表
+  };
+});
 
 const defaultForm = {
   input1: 0, // 数字
@@ -45,43 +57,40 @@ export default function App() {
       {/* 上半区：组件化展示 */}
       <PartViewer
         activePart={activePart}
-        otherParts={otherParts}
+        allParts={parts}
         onSelect={setActiveId}
       />
 
       {/* 下半区：表单显示所有部件 */}
-      <div className="grid">
-        <div className="main">
-          <div className="form">
-            <div className="form__title">All Parts Parameters</div>
 
-            <StumpsPanel
-              values={formState["stumps"] || defaultForm}
-              onChange={(newValues) =>
-                setFormState((prev) => ({ ...prev, stumps: newValues }))
-              }
-            />
-            <BearersPanel
-              values={formState["bearers"] || defaultForm}
-              onChange={(newValues) =>
-                setFormState((prev) => ({ ...prev, bearers: newValues }))
-              }
-            />
-            <JoistsPanel
-              values={formState["joists"] || defaultForm}
-              onChange={(newValues) =>
-                setFormState((prev) => ({ ...prev, joists: newValues }))
-              }
-            />
-            <DeckBoardsPanel
-              values={formState["deck-boards"] || defaultForm}
-              onChange={(newValues) =>
-                setFormState((prev) => ({ ...prev, "deck-boards": newValues }))
-              }
-            />
-          </div>
+      <div className="form">
+        <div className="form__title">All Parts Parameters</div>
+
+        <StumpsPanel
+          values={formState["stumps"] || defaultForm}
+          onChange={(newValues) =>
+            setFormState((prev) => ({ ...prev, stumps: newValues }))
+          }
+        />
+        <BearersPanel
+          values={formState["bearers"] || defaultForm}
+          onChange={(newValues) =>
+            setFormState((prev) => ({ ...prev, bearers: newValues }))
+          }
+        />
+        <JoistsPanel
+          values={formState["joists"] || defaultForm}
+          onChange={(newValues) =>
+            setFormState((prev) => ({ ...prev, joists: newValues }))
+          }
+        />
+        <DeckBoardsPanel
+          values={formState["deck-boards"] || defaultForm}
+          onChange={(newValues) =>
+            setFormState((prev) => ({ ...prev, "deck-boards": newValues }))
+          }
+        />
         </div>
       </div>
-    </div>
   );
 }

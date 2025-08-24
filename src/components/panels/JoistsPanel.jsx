@@ -5,7 +5,7 @@ export default function JoistsPanel({ values = { input1: 0, input2: "A", input3:
       <div className="form__grid">
         {/* Input 1 */}
         <label className="field">
-          <span className="field__label">Input 1（数字）</span>
+          <span className="field__label">Input 1</span>
           <input
             className="field__input"
             type="number"
@@ -16,7 +16,7 @@ export default function JoistsPanel({ values = { input1: 0, input2: "A", input3:
 
         {/* Input 2 */}
         <label className="field">
-          <span className="field__label">Input 2（选择）</span>
+          <span className="field__label">Input 2</span>
           <select
             className="select"
             value={values.input2}
@@ -30,7 +30,7 @@ export default function JoistsPanel({ values = { input1: 0, input2: "A", input3:
 
         {/* Input 3 */}
         <label className="field field--full">
-          <span className="field__label">Input 3（滑块）</span>
+          <span className="field__label">Input 3</span>
           <div className="range-row">
             <input
               type="range"
@@ -44,15 +44,6 @@ export default function JoistsPanel({ values = { input1: 0, input2: "A", input3:
           </div>
         </label>
 
-        <div className="actions">
-          <button
-            onClick={() =>
-              alert("已保存（示例）。当前 JSON：\n" + JSON.stringify(values, null, 2))
-            }
-          >
-            保存 Joists
-          </button>
-        </div>
       </div>
     </div>
   );
