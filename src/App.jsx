@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import "./App.css";
 import PartViewer from "./components/PartViewer";
+import PartViewer2 from "./components/PartViewer2";
 import StumpsPanel from "./components/panels/StumpsPanel";
 import BearersPanel from "./components/panels/BearersPanel";
 import JoistsPanel from "./components/panels/JoistsPanel";
@@ -57,6 +58,12 @@ export default function App() {
 
       {/* 上半区：组件化展示 */}
       <PartViewer
+        activePart={activePart}
+        allParts={parts}
+        onSelect={setActiveId}
+      />
+
+      <PartViewer2
         activePart={activePart}
         allParts={parts}
         onSelect={setActiveId}
